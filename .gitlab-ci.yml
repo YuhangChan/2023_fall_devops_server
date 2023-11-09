@@ -22,7 +22,7 @@ include:
 - template: Dependency-Scanning.gitlab-ci.yml
 
 #依赖检查
-gemnasium-dependency_scanning:
+gemnasium-maven-dependency_scanning:
   tags: [ docker ]
 
 #静态安全检查
