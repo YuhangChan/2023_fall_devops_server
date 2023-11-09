@@ -140,7 +140,7 @@ code_quality:
 
 # This job runs in the deploy stage.
 # It only runs when *both* jobs in the test stage
-deploy-job: 
+deploy: 
   stage: deploy complete successfully.
   environment: production
   script:
