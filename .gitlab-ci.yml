@@ -51,9 +51,9 @@ unit-test-job: # This job runs in the test stage.
  artifacts:
    when: always
    paths:
-     - build/reports/jacoco/test/html
+     - build/test-results/test/*.xml
    reports:
-     junit: build/reports/jacoco/test/html
+     junit: build/test-results/test/*.xml
 
 
 
