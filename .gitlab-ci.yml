@@ -47,7 +47,14 @@ unit-test-job: # This job runs in the test stage.
  stage: test # It only starts when the job in the build stage completes successfully.
  script:
  - chmod +x gradlew
- - ./gradlew test
+ - ./gradlew jacocoTestReport
+ artifacts:
+   when: always
+   paths:
+     - build/reports/jacoco/test/jacocoTestReport.xml
+   reports:
+     junit: jacocoTestReport.xml
+
 
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
