@@ -1,10 +1,12 @@
 plugins {
     id 'java'
+    id 'jacoco'
     id 'org.springframework.boot' version '3.0.5'
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
 apply plugin: 'maven-publish'
+apply plugin: 'jacoco'
 group = 'org.fffd'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
@@ -80,6 +82,14 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+
 }
 
 publishing {
