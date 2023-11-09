@@ -145,6 +145,6 @@ deploy-job:
   stage: deploy 
   environment: production
   script:
-    - ls
+    - ls ./build/libs
     - sshpass -p "MQGcudeM" scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-SNAPSHOT.jar root@172.29.4.153:~
     - sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-SNAPSHOT.jar"
