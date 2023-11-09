@@ -21,6 +21,7 @@ public class L23o6Application {
 
     @Bean
     public OpenAPI customOpenAPI() {
+        //TODO
         return new OpenAPI()
                 .components(new Components())
                 .info(new Info().title("l23o6 API").version("0.0.1"));
