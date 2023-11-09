@@ -140,8 +140,8 @@ code_quality:
 
 # This job runs in the deploy stage.
 # It only runs when *both* jobs in the test stage
-deploy: 
-  stage: deploy complete successfully.
+deploy-job: 
+  stage: deploy 
   environment: production
   script:
     - sshpass -p "MQGcudeM" scp -o StrictHostKeyChecking=no target/demo-0.0.1-SNAPSHOT.jar root@172.29.4.153:~
