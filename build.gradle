@@ -85,6 +85,7 @@ tasks.named('test') {
 }
 
 jacocoTestReport {
+    dependsOn test
     onlyIf {true}
     reports {
         xml.enabled true
