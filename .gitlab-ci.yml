@@ -96,6 +96,16 @@ code_quality:
         --volume "$PWD":/code \
         --volume "$DOCKER_SOCKET_PATH":/var/run/docker.sock \
         "$CODE_QUALITY_IMAGE" /code
+    - cat gl-code-quality-report.json
+    - |
+      if grep "issue" gl-code-quality-report.json
+      then
+        echo "Test fail"
+        exit 1
+      else
+        echo "Test success"
+        exit 0
+      fi
   artifacts:
     reports:
       codequality: gl-code-quality-report.json
