@@ -16,6 +16,21 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
+include:
+- template: SAST.gitlab-ci.yml
+- template: Dependency-Scanning.gitlab-ci.yml
+
+#依赖检查
+gemnasium-maven-dependency_scanning:
+  tags: [ docker ]
+
+#静态安全检查
+semgrep-sast: 
+  tags: [ docker ]
+
+
+
+
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
