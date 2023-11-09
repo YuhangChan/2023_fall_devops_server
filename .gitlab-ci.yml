@@ -148,4 +148,7 @@ deploy-job:
     - chmod +x gradlew
     - ./gradlew build -x test
     - sshpass -p "MQGcudeM" scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-SNAPSHOT.jar root@172.29.4.153:~
-    - sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-SNAPSHOT.jar"
+    - sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 'docker container rm -f springboot_app; docker run -d --name springboot_app -p 8080:8080  l23o6-0.0.1-SNAPSHOT.jar'
+    
+    
+    #- sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-SNAPSHOT.jar"
