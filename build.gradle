@@ -82,13 +82,14 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
 
 jacocoTestReport {
     dependsOn test
     onlyIf {true}
     reports {
-        xml.enabled true
+        xml.enabled false
         html.enabled true
     }
 
