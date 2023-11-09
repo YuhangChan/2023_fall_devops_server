@@ -53,7 +53,7 @@ unit-test-job: # This job runs in the test stage.
    paths:
      - build/reports/jacoco/test/jacocoTestReport.xml
    reports:
-     junit: jacocoTestReport.xml
+     junit: build/reports/jacoco/test/jacocoTestReport.xml
 
 
 lint-test-job:   # This job also runs in the test stage.
