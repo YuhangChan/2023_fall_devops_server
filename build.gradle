@@ -6,7 +6,7 @@ plugins {
 
 apply plugin: 'maven-publish'
 group = 'org.fffd'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1-snapshot'
 sourceCompatibility = '17'
 
 configurations {
