@@ -152,6 +152,6 @@ deploy-job:
   script:
         - chmod +x gradlew
         - ./gradlew build -x test
-        - sshpass -f password scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-snapshot.jar root@172.29.4.153:~
-        - sshpass -f password ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-snapshot.jar"
+        - sshpass -p "MQGcudeM" scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-snapshot.jar root@172.29.4.153:~
+        - sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-snapshot.jar"
 #    - echo "test"
