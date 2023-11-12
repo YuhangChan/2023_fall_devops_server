@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://172.29.4.153:5173", allowCredentials = "true")
+@CrossOrigin(origins = "http://172.29.4.153", allowCredentials = "true")
 @RestController
 public class HelloController {
     @GetMapping("/hello")

@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 
 import cn.dev33.satoken.stp.StpUtil;
 
-@CrossOrigin(origins = "http://172.29.4.153:5173", allowCredentials = "true")
+@CrossOrigin(origins = "http://172.29.4.153", allowCredentials = "true")
 @RestController
 @RequestMapping("/v1/")
 @RequiredArgsConstructor
