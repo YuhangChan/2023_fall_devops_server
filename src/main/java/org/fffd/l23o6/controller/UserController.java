@@ -9,7 +9,7 @@ import org.fffd.l23o6.pojo.vo.user.*;
 import org.fffd.l23o6.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+@CrossOrigin(origins = "http://172.29.4.153:5173", allowCredentials = "true")
 @RestController
 @RequestMapping("/v1/")
 @RequiredArgsConstructor
