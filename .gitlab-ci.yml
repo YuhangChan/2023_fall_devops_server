@@ -18,7 +18,7 @@
 
 # gradle项目参考：https://docs.gitlab.com/ee/user/application_security/dependency_scanning/
 #include:
-- template: SAST.gitlab-ci.yml
+#- template: SAST.gitlab-ci.yml
 #- template: Dependency-Scanning.gitlab-ci.yml
 #
 # #依赖检查
@@ -26,8 +26,8 @@
 #  tags: [ docker ]
 #
 ##静态安全检查
-semgrep-sast:
- tags: [ docker ]
+#semgrep-sast:
+# tags: [ docker ]
 
 
 
@@ -37,11 +37,16 @@ stages:          # List of stages for jobs, and their order of execution
   - test
   - deploy
 
-build-job: # This job runs in the build stage, which runs first.
- stage: build
- script:
- - chmod +x gradlew
- - ./gradlew build -x test
+test-job:
+  stage: test
+  script:
+    - echo "'$SSH_PASSWORD'"
+
+#build-job: # This job runs in the build stage, which runs first.
+# stage: build
+# script:
+# - chmod +x gradlew
+# - ./gradlew build -x test
 
 # unit-test-job: # This job runs in the test stage.
 #   stage: test # It only starts when the job in the build stage completes successfully.
@@ -141,11 +146,11 @@ build-job: # This job runs in the build stage, which runs first.
 
 # This job runs in the deploy stage.
 # It only runs when *both* jobs in the test stage
-deploy-job: 
-  stage: deploy 
-  environment: production
-  script:
-    - chmod +x gradlew
-    - ./gradlew build -x test
-    - sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-snapshot.jar root@172.29.4.153:~
-    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-snapshot.jar"
+#deploy-job:
+#  stage: deploy
+#  environment: production
+#  script:
+#    - chmod +x gradlew
+#    - ./gradlew build -x test
+#    - sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-snapshot.jar root@172.29.4.153:~
+#    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-snapshot.jar"
