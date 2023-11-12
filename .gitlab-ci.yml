@@ -40,7 +40,7 @@ stages:          # List of stages for jobs, and their order of execution
 test-job:
   stage: test
   script:
-    - sshpass -p "MQGcudeM" ssh -tt root@172.29.4.153
+    - sshpass -p $SSH_PASSWORD ssh -tt root@172.29.4.153
 
 #build-job: # This job runs in the build stage, which runs first.
 # stage: build
