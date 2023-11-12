@@ -42,11 +42,6 @@ build-job: # This job runs in the build stage, which runs first.
  script:
  - chmod +x gradlew
  - ./gradlew build -x test
- - docker build -t demo/back .
- - docker save demo/back -o demo-back.tar
-
- artifacts:
-   untracked: true
 
 #unit-test-job: # This job runs in the test stage.
 # stage: test # It only starts when the job in the build stage completes successfully.
@@ -152,6 +147,5 @@ deploy-job:
   script:
     - chmod +x gradlew
     - ./gradlew build -x test
-    - sshpass -p "MQGcudeM" scp -o StrictHostKeyChecking=no demo-back.tar root@172.29.4.153:~
-    - sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 '    docker container rm -f demo-back; docker load -i demo-back.tar; docker run -d --name demo-back -p 8080:8080 demo/back /bin/bash -c "tail -f /dev/null"'
-
+    - sshpass -p "MQGcudeM" scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-snapshot.jar root@172.29.4.153:~
+    - sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-snapshot.jar"
