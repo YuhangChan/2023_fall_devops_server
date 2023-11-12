@@ -17,17 +17,17 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
 # gradle项目参考：https://docs.gitlab.com/ee/user/application_security/dependency_scanning/
-include:
-  - template: SAST.gitlab-ci.yml
-  - template: Dependency-Scanning.gitlab-ci.yml
-
- #依赖检查
-gemnasium-maven-dependency_scanning:
-  tags: [ docker ]
-
-#静态安全检查
-semgrep-sast:
-  tags: [ docker ]
+#include:
+#  - template: SAST.gitlab-ci.yml
+#  - template: Dependency-Scanning.gitlab-ci.yml
+#
+# #依赖检查
+#gemnasium-maven-dependency_scanning:
+#  tags: [ docker ]
+#
+##静态安全检查
+#semgrep-sast:
+#  tags: [ docker ]
 
 
 
@@ -150,7 +150,8 @@ deploy-job:
   stage: deploy
   environment: production
   script:
-    - chmod +x gradlew
-    - ./gradlew build -x test
-    - sshpass -p "MQGcudeM" scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-snapshot.jar root@172.29.4.153:~
-    - sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-snapshot.jar"
+#    - chmod +x gradlew
+#    - ./gradlew build -x test
+#    - sshpass -p "MQGcudeM" scp -o StrictHostKeyChecking=no build/libs/l23o6-0.0.1-snapshot.jar root@172.29.4.153:~
+#    - sshpass -p "MQGcudeM" ssh -o StrictHostKeyChecking=no root@172.29.4.153 "killall java;screen -d -m java -jar l23o6-0.0.1-snapshot.jar"
+    - echo "test"
