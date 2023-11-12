@@ -9,11 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @GetMapping("/hello")
     public String hello() {
-        String s = null; // 可能导致空指针引用误报
-        if (s.equals("test")) { // 可能导致空指针引用误报
-            return "Hello, l23o6!";
-        } else {
-            return "Oops, something went wrong!";
-        }
+        return "Hello";
     }
 }
