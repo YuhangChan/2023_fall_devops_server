@@ -31,7 +31,6 @@ semgrep-sast:
 
 
 
-
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
