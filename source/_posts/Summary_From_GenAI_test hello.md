@@ -29,3 +29,19 @@ tags:
 
 这个方法没有任何参数，所以客户端不需要提供任何参数来调用这个方法。如果客户端需要向服务器发送数据，它可以通过POST请求或其他HTTP方法来实现。
 
+## src/main/java/org/fffd/l23o6/controller/HelloController.java
+### Code 
+```
+ // 待评审函数开始 
+ @GetMapping("/hello")
+    public String hello() {
+        return "Hello!!!";
+    } 
+ // 待评审函数结束 
+```
+
+### Summary
+ 这是一个Spring MVC的RESTful API接口，使用了@GetMapping注解，表示这个接口用于获取数据，请求的URL为"/hello"。当这个接口被访问时，会返回一个字符串"Hello!!!"。
+
+在实际应用中，这个接口可能会被用来返回一些欢迎信息，或者是一些关于系统的状态信息。
+
