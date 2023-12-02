@@ -135,3 +135,17 @@ tags:
 
 这个函数只是一个简单的示例，实际的API可能会返回更复杂的数据，例如JSON格式的数据，或者是对数据库进行操作后返回的数据。
 
+## src/main/java/org/fffd/l23o6/controller/HelloController.java
+### Code 
+```
+ // 待评审函数开始 
+ @GetMapping("/hello")
+    public String hello() {
+        return "Hello!!!";
+    } 
+ // 待评审函数结束 
+```
+
+### Summary
+ 这是一个Spring MVC的RESTful API，使用@GetMapping注解标记该方法为GET请求的处理方法，并且该方法的路径为"/hello"。方法返回值为一个字符串"Hello!!!"。
+
