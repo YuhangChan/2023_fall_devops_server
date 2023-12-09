@@ -226,3 +226,23 @@ tags:
 
 这个函数没有任何参数，因此它不会从客户端接收到任何数据。如果需要从客户端接收数据，可以在函数参数中添加形参，并在函数体中处理这些参数。
 
+## src/main/java/org/fffd/l23o6/controller/HelloController.java
+### Code 
+```
+ // 待评审函数开始 
+ @GetMapping("/hello")
+    public String hello() {
+        return "Hello!!!";
+    } 
+ // 待评审函数结束 
+```
+
+### Summary
+ 这是一个使用Spring MVC框架编写的RESTful API端点，该端点接收GET请求，并返回一个字符串"Hello!!!"。
+
+@GetMapping注解用于定义HTTP方法（这里是GET），"/hello"表示该方法的URL路径。
+
+public String hello()方法用于处理请求并返回响应，返回值为字符串"Hello!!!"。
+
+这个端点可以用来测试API是否正常运行，以及接收和处理GET请求的能力。
+
