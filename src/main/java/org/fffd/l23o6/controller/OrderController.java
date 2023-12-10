@@ -60,6 +60,7 @@ public class OrderController {
             default:
                 throw new BizException(CommonErrorType.ILLEGAL_ARGUMENTS, "Invalid order status.");
         }
+
         return CommonResponse.success();
     }
 
