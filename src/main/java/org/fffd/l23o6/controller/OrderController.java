@@ -52,7 +52,6 @@ public class OrderController {
 
     @PatchMapping("order/{orderId}")
     public CommonResponse<String> patchOrder(@PathVariable("orderId") Long orderId, @Valid @RequestBody PatchOrderRequest request) throws AlipayApiException, ServletException, IOException, ParseException {
-
         switch (request.getStatus()) {
             case PAID:
                 return CommonResponse.success(orderService.payOrder(orderId,request.getType()));
