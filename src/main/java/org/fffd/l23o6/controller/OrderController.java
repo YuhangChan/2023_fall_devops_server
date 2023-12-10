@@ -31,7 +31,6 @@ import cn.dev33.satoken.stp.StpUtil;
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
-
     @PostMapping("order")
     public CommonResponse<OrderIdVO> createOrder(@Valid @RequestBody CreateOrderRequest request) throws AlipayApiException, ServletException, IOException {
         StpUtil.checkLogin();
