@@ -34,7 +34,6 @@ public class OrderController {
     @PostMapping("order")
     public CommonResponse<OrderIdVO> createOrder(@Valid @RequestBody CreateOrderRequest request) throws AlipayApiException, ServletException, IOException {
         StpUtil.checkLogin();
-
         return CommonResponse.success(new OrderIdVO(orderService.createOrder(StpUtil.getLoginIdAsString(), request.getTrainId(), request.getStartStationId(), request.getEndStationId(), request.getSeatType(), null,request.getPrice())));
     }
 
@@ -61,7 +60,6 @@ public class OrderController {
             default:
                 throw new BizException(CommonErrorType.ILLEGAL_ARGUMENTS, "Invalid order status.");
         }
-
         return CommonResponse.success();
     }
 
