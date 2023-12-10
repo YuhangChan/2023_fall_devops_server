@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class BusinessExceptionHandler {
     @ExceptionHandler(NotLoginException.class)
     public CommonResponse<?> handleAuthorizeException(NotLoginException e) {
-        log.error("Not Login Exception.", e);
+        log.error("Not Login Exception", e);
+
         return CommonResponse.error(CommonErrorType.UNAUTHORIZED, e.getMessage());
     }
     
     @ExceptionHandler(NoSuchElementException.class)
     public CommonResponse<?> handleNoSuchElementException(NoSuchElementException e) {
-        log.error("No Such Element Exception.", e);
+        log.error("No Such Element Exception", e);
         return CommonResponse.error(CommonErrorType.ILLEGAL_ARGUMENTS, "请求的资源不存在");
     }
 }
