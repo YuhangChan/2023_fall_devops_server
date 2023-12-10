@@ -21,7 +21,7 @@ public class BusinessExceptionHandler {
     
     @ExceptionHandler(NoSuchElementException.class)
     public CommonResponse<?> handleNoSuchElementException(NoSuchElementException e) {
-        log.error("No Such Element Exception.", e);
+        log.error("No Such Element Exception.", e)
         return CommonResponse.error(CommonErrorType.ILLEGAL_ARGUMENTS, "请求的资源不存在");
     }
 }
