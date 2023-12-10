@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class BusinessExceptionHandler {
     @ExceptionHandler(NotLoginException.class)
     public CommonResponse<?> handleAuthorizeException(NotLoginException e) {
-        log.error("Not Login Exception.", e);
+        log.error("Not Login Exception.", e)
         return CommonResponse.error(CommonErrorType.UNAUTHORIZED, e.getMessage());
     }
     
