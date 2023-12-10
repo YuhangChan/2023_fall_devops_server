@@ -34,6 +34,7 @@ public class OrderController {
     @PostMapping("order")
     public CommonResponse<OrderIdVO> createOrder(@Valid @RequestBody CreateOrderRequest request) throws AlipayApiException, ServletException, IOException {
         StpUtil.checkLogin();
+
         return CommonResponse.success(new OrderIdVO(orderService.createOrder(StpUtil.getLoginIdAsString(), request.getTrainId(), request.getStartStationId(), request.getEndStationId(), request.getSeatType(), null,request.getPrice())));
     }
 
@@ -81,5 +82,6 @@ public class OrderController {
     @PostMapping("order/check/{orderId}")
     public CommonResponse<Boolean> checkIllegal(@PathVariable("orderId") Long orderId){
         return CommonResponse.success(orderService.checkIllegal(orderId));
+
     }
 }
