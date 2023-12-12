@@ -41,6 +41,10 @@ public class OrderController {
     @GetMapping("order")
     public CommonResponse<List<OrderVO>> listOrders(){
         StpUtil.checkLogin();
+
+
+
+
         return CommonResponse.success(orderService.listOrders(StpUtil.getLoginIdAsString()));
     }
 
@@ -69,6 +73,10 @@ public class OrderController {
     @GetMapping("order/usePoints/{orderId}")
     public CommonResponse<Integer> usePoints(@PathVariable("orderId") Long orderId){
         return CommonResponse.success(orderService.usePoints(orderId));
+
+
+
+        
     }
 
     @GetMapping("order/cancelUsePoints/{orderId}")
